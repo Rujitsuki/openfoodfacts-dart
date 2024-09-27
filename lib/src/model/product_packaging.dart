@@ -1,5 +1,6 @@
 import 'package:json_annotation/json_annotation.dart';
 import 'localized_tag.dart';
+import '../utils/json_helper.dart';
 import '../interface/json_object.dart';
 
 part 'product_packaging.g.dart';
@@ -10,6 +11,7 @@ class ProductPackaging extends JsonObject {
   /// Shape, canonicalized using [TaxonomyPackagingShape].
   @JsonKey(
     includeIfNull: false,
+    fromJson: JsonHelper.localizedTagFromJson,
     toJson: LocalizedTag.objToJson,
   )
   LocalizedTag? shape;
@@ -17,6 +19,7 @@ class ProductPackaging extends JsonObject {
   /// Material, canonicalized using [TaxonomyPackagingMaterial].
   @JsonKey(
     includeIfNull: false,
+    fromJson: JsonHelper.localizedTagFromJson,
     toJson: LocalizedTag.objToJson,
   )
   LocalizedTag? material;
@@ -24,6 +27,7 @@ class ProductPackaging extends JsonObject {
   /// Recycling status, canonicalized using [TaxonomyPackagingRecycling].
   @JsonKey(
     includeIfNull: false,
+    fromJson: JsonHelper.localizedTagFromJson,
     toJson: LocalizedTag.objToJson,
   )
   LocalizedTag? recycling;

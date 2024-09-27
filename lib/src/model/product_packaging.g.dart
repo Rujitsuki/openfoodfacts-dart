@@ -8,15 +8,9 @@ part of 'product_packaging.dart';
 
 ProductPackaging _$ProductPackagingFromJson(Map<String, dynamic> json) =>
     ProductPackaging()
-      ..shape = json['shape'] == null
-          ? null
-          : LocalizedTag.fromJson(json['shape'] as Map<String, dynamic>)
-      ..material = json['material'] == null
-          ? null
-          : LocalizedTag.fromJson(json['material'] as Map<String, dynamic>)
-      ..recycling = json['recycling'] == null
-          ? null
-          : LocalizedTag.fromJson(json['recycling'] as Map<String, dynamic>)
+      ..shape = JsonHelper.localizedTagFromJson(json['shape'])
+      ..material = JsonHelper.localizedTagFromJson(json['material'])
+      ..recycling = JsonHelper.localizedTagFromJson(json['recycling'])
       ..numberOfUnits = JsonObject.parseInt(json['number_of_units'])
       ..quantityPerUnit = json['quantity_per_unit'] as String?
       ..weightMeasured = JsonObject.parseDouble(json['weight_measured']);

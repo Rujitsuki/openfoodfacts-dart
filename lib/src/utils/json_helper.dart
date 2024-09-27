@@ -1,6 +1,7 @@
 import '../interface/json_object.dart';
 import '../model/attribute_group.dart';
 import '../model/ingredient.dart';
+import '../model/localized_tag.dart';
 import '../model/product_image.dart';
 import '../model/product_packaging.dart';
 import '../utils/language_helper.dart';
@@ -376,6 +377,16 @@ class JsonHelper {
     }
 
     return result;
+  }
+
+  /// Returns a [LocalizedTag] from JSON map or String
+  static LocalizedTag? localizedTagFromJson(dynamic json) {
+    if (json is Map<String, dynamic>) {
+      return LocalizedTag.fromJson(json);
+    } else if (json is String) {
+      return LocalizedTag()..name = json;
+    }
+    return null;
   }
 
   /// Returns a JSON map from [AttributeGroup]s
